@@ -41,22 +41,22 @@ Rails.application.configure do
   
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-  		api_key: 'key-4b91e350870d4a3b029d9be279bf34a6',
-  		domain: 'sandbox0e51c05487c64cd194c9a88d5ed06a19.mailgun.org'
+  		api_key: '',
+  		domain: ''
   }
   
   config.action_mailer.default_url_options = {
-    :host => "https://rails-crud2-leiachung41.c9users.io"
+    :host => ""
   }
     
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-  		api_key: '54cfa031aa4b377f09ccb1b1b71b8eab-a5d1a068-8b151cfa',
-  		domain: 'sandboxf62f2a4b68cb4ccfa9aab1879217b165.mailgun.org'
+  		api_key: '5',
+  		domain: ''
   }
   
   config.action_mailer.default_url_options = {
-    :host => "https://rails-crud2-leiachung41.c9users.io"
+    :host => ""
   }
   
 end
