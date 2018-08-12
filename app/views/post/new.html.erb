@@ -1,0 +1,60 @@
+<h1>Post#new</h1>
+<form action="/post/create">
+    <input type="hidden" id="lat" name="lat" value="0">
+    <input type="hidden" id="lng" name="lng" value="0">
+    <input type="hidden" id="address" name="address" value="">
+    <p>
+        <label for="title">Title : </label>
+        <input type="text" name="title">
+    </p>
+    <p>
+        <div id="map" style="width: 100%; height: 300px;"></div>
+        <div id="map_message"></div>
+    </p>
+    <textarea name="contents"></textarea>
+    <button type="submit">Wtire</button>
+</form>
+
+<script>
+    var container = document.getElementById('map'); 
+    var options = { 
+    	center: new daum.maps.LatLng(35.152665, 129.118203), 
+    	level: 6 
+    };
+    
+    var map = new daum.maps.Map(container, options);
+    
+    var marker = null;
+    var geocoder = new daum.maps.services.Geocoder();
+    
+    daum.maps.event.addListener(map, 'click', function(mouseEvent) {
+        
+        if (marker == null) {
+            marker = new daum.maps.Marker({
+                position: map.getCenter()
+            });
+            marker.setMap(map);
+        }
+        
+        var latlng = mouseEvent.latLng;
+        marker.setPosition(latlng);
+        
+        $('#lat').val(latlng.getLat());
+        $('#lng').val(latlng.getLng());
+        
+        geocoder.coord2Address(latlng.getLng(), latlng.getLat(), function(result, status) {
+            console.log(result);
+            
+            var address_name = '';
+            
+            if (result.length > 0) {
+               address_name = result[0].address.address_name;
+            }
+            
+            $('#map_message').text('The loocation you clicked is ' + address_name + '('
+            + latlng.getLat() + ',' + latlng.getLng() +  ')' + '.');
+            $('#address').val(address_name);
+        });
+        
+    });
+</script>

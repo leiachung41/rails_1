@@ -1,0 +1,15 @@
+<h1>User#profile</h1>
+<form action="/user/profile" method="post" enctype="multipart/form-data">
+    <%=hidden_field_tag(request_forgery_protection_token.to_s, form_authenticity_token) %>
+    <p>
+        <label for="name">Name : </label>
+        <input name="name" type="text" value="<%=current_user.name%>">
+    </p>
+    <p>
+        <img src="<%=current_user.profile%>" style="width: 100px;">
+        <label for="profile">Profile Picture : </label>
+        <input name="profile" type="file">
+    </p>
+    
+    <button type="submit">Update</button>
+</form>

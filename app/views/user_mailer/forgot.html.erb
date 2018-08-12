@@ -1,0 +1,11 @@
+<h2>UserMailer#Forgot your password?</h2>
+
+<p>
+    In order to change your password, 
+    please click the "New password" button below.
+</p>
+<button>
+    <a href="<%=@host%>/user/forgot_change?code=<%=@verification.code%>" 
+    style="text-decoration: none;">
+        New password</a></button>
+        

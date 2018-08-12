@@ -1,0 +1,11 @@
+<h2>UserMailer#Verification required.</h2>
+
+<p>
+    In order to complete your email verification process, 
+    please click the "Verify my email address" button below.
+</p>
+<button>
+    <a href="<%=@host%>/user/verify?code=<%=@verification.code%>" 
+    style="text-decoration: none;">
+        Verify my email address</a></button>
+        
